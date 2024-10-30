@@ -1,0 +1,61 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class NumberGame {
+    public static void main(String[] args) {
+        Random nar = new Random();
+        int randNum = 0;
+        int Ng = 0;
+        int Nc;
+        Scanner sc = new Scanner(System.in);
+        boolean val = true;
+        while(val){
+            int i = 0;
+            while(true){
+                randNum = nar.nextInt(100);
+                if (randNum != 0)
+                    break;
+            }
+            System.out.println(randNum);
+            for(a = 10;a > 0;a--){
+                System.out.println("You have " + a + " chances!");
+                System.out.print("Guess the number:");
+                Ng = sc.nextInt();
+                if(randNum == Ng){
+                    System.out.println("You Have Guessed Correctly!");
+                    break;
+                }else if(Ng < randNum && Ng >= randNum - 10){
+                    System.out.println("Close!But wrong guess");
+                }else if(Ng > randNum && Ng <= randNum + 10){
+                    System.out.println("Close!But wrong guess");
+                }else if(Ng < randNum){
+                    System.out.println("Too Low");
+                }else if(Ng > randNum){
+                    System.out.println("Too High");
+                }
+            }
+            if(a == 0) {
+                System.out.println("Out of chances!");
+                System.out.println("Your Score: 0");
+            }
+            else{
+                System.out.println("Number of chances taken: " + (11 - a));
+                System.out.println("Your Score: " + ((11-(11 - a)) * 10));
+            }
+            boolean tryCondition = true;
+            while(tryCondition){
+                System.out.println("Try Again(0 to No/1 to Yes)?");
+                Nc = sc.nextInt();
+                if(Nc == 0){
+                    System.out.println("Thankyou!");
+                    val = false;
+                    break;
+                }
+                else if(Nc != 1)
+                    System.out.println("Invalid Number...\n");
+                else
+                    break;
+            }
+        }
+    }
+}
